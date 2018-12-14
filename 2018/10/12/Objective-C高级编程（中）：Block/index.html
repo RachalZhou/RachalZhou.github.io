@@ -87,14 +87,14 @@
 <meta property="og:site_name" content="Rachal&#39;s blog">
 <meta property="og:description" content="《Objective-C高级编程：iOS与OS X多线程和内存管理》是iOS开发中一本经典书籍，书中有关ARC、Block、GCD的梳理是iOS开发进阶路上必不可少的知识储备。笔者读完此书后为了加强理解，特以笔记记之。本文为中篇，主要谈论Objective-C中的Block。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/RachalZhou/MarkdownImages/blob/master/2018/oc_advanced_block.jpg?raw=true">
-<meta property="og:image" content="https://github.com/RachalZhou/MarkdownImages/blob/master/2018/oc_advanced_block_001.jpg?raw=true">
-<meta property="og:image" content="https://github.com/RachalZhou/MarkdownImages/blob/master/2018/oc_advanced_block_002.jpg?raw=true">
-<meta property="og:updated_time" content="2018-11-29T12:38:58.506Z">
+<meta property="og:image" content="https://mdimages.oss-cn-shanghai.aliyuncs.com/blog/2018/oc_advanced_block.jpg">
+<meta property="og:image" content="https://mdimages.oss-cn-shanghai.aliyuncs.com/blog/2018/oc_advanced_block_001.jpg">
+<meta property="og:image" content="https://mdimages.oss-cn-shanghai.aliyuncs.com/blog/2018/oc_advanced_block_002.jpg">
+<meta property="og:updated_time" content="2018-12-14T09:29:01.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C高级编程（中）：Block">
 <meta name="twitter:description" content="《Objective-C高级编程：iOS与OS X多线程和内存管理》是iOS开发中一本经典书籍，书中有关ARC、Block、GCD的梳理是iOS开发进阶路上必不可少的知识储备。笔者读完此书后为了加强理解，特以笔记记之。本文为中篇，主要谈论Objective-C中的Block。">
-<meta name="twitter:image" content="https://github.com/RachalZhou/MarkdownImages/blob/master/2018/oc_advanced_block.jpg?raw=true">
+<meta name="twitter:image" content="https://mdimages.oss-cn-shanghai.aliyuncs.com/blog/2018/oc_advanced_block.jpg">
 
 
 
@@ -347,7 +347,7 @@
 
       
         <p><a href="https://book.douban.com/subject/24720270/" target="_blank" rel="noopener">《Objective-C高级编程：iOS与OS X多线程和内存管理》</a>是iOS开发中一本经典书籍，书中有关ARC、Block、GCD的梳理是iOS开发进阶路上必不可少的知识储备。笔者读完此书后为了加强理解，特以笔记记之。本文为中篇，主要谈论Objective-C中的Block。</p>
-<p><img src="https://github.com/RachalZhou/MarkdownImages/blob/master/2018/oc_advanced_block.jpg?raw=true" alt="Block"></p>
+<p><img src="https://mdimages.oss-cn-shanghai.aliyuncs.com/blog/2018/oc_advanced_block.jpg" alt="Block"></p>
 <a id="more"></a>
 <p>鉴于本书翻译自日文原版且翻译偏向书面，笔者希望采用通俗的语言记录，文章结构略有调整。</p>
 <h2 id="Block概要"><a href="#Block概要" class="headerlink" title="Block概要"></a>Block概要</h2><p><strong>定义</strong>：<strong>Block是带有自动变量（局部变量）的匿名函数。</strong></p>
@@ -452,13 +452,13 @@
 <p>结构体声明如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct __Block_byref_val_0 &#123;</span><br><span class="line">    void *__isa;</span><br><span class="line">    __Block_byref_val_0 *__forwarding;</span><br><span class="line">    int __flags;</span><br><span class="line">    int __size;</span><br><span class="line">    int val;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><code>__Block_byref_val_0</code>结构体实例的成员变量<code>__forwarding</code>持有指向该实例自身的指针，也就是原自动变量。</p>
-<p><img src="https://github.com/RachalZhou/MarkdownImages/blob/master/2018/oc_advanced_block_001.jpg?raw=true" alt="访问__block变量"></p>
+<p><img src="https://mdimages.oss-cn-shanghai.aliyuncs.com/blog/2018/oc_advanced_block_001.jpg" alt="访问__block变量"></p>
 <p>另外，<code>__block</code>变量的<code>__Block_byref_val_0</code>结构体并不在Block的结构体中，这样做是为了在多个Block中使用<code>__block</code>变量。</p>
 <blockquote>
 <p>Block从栈复制到堆时，<code>__block</code>变量也会一并从栈复制到堆并被该Block所持有。在多个Block中使用<code>__block</code>变量时，被复制的Block持有<code>__block</code>变量，并增加<code>__block</code>变量的引用计数。如果配置在堆上的Block被废弃，那么它所使用的__block变量也就被释放。</p>
 </blockquote>
 <p>栈上的<code>__block</code>变量的结构体实例在复制到堆上时，会将成员变量<code>__forwarding</code>的值替换为复制目标堆上的<code>__block</code>变量的结构体的地址。</p>
-<p><img src="https://github.com/RachalZhou/MarkdownImages/blob/master/2018/oc_advanced_block_002.jpg?raw=true" alt="复制__block变量"></p>
+<p><img src="https://mdimages.oss-cn-shanghai.aliyuncs.com/blog/2018/oc_advanced_block_002.jpg" alt="复制__block变量"></p>
 <p>通过该功能，无论是在Block语法中、Block语法外使用<code>__block</code>变量，还是<code>__block</code>变量配置在栈上或堆上，都可以<strong>顺利访问同一个<code>__block</code>变量</strong>。</p>
 <h3 id="Block截获的对象和-block变量"><a href="#Block截获的对象和-block变量" class="headerlink" title="Block截获的对象和__block变量"></a>Block截获的对象和__block变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">- (void)blockTest &#123;</span><br><span class="line"></span><br><span class="line">    blk_t blk;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        id array = [[NSMutableArray alloc] init];</span><br><span class="line"></span><br><span class="line">        blk = ^(id obj)&#123;</span><br><span class="line"></span><br><span class="line">        [array addObject:obj];</span><br><span class="line"></span><br><span class="line">            NSLog(@&quot;array count is %ld&quot;, [array count]);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    blk([[NSObject alloc] init]);</span><br><span class="line">    blk([[NSObject alloc] init]);</span><br><span class="line">    blk([[NSObject alloc] init]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上<code>blockTest</code>方法在ARC无效和有效情况下执行结果：</p>
@@ -663,7 +663,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -674,7 +674,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
