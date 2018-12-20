@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="App搜索页面经常用到关键词提示，例如手机淘宝的【历史搜索】，网易云音乐的【热门搜索】。为了方便使用，笔者写了一个可以流式布局按钮的view并封装。">
+<meta name="description" content="开篇思考题：为什么数组要从 0 开始编号，而不是从 1 开始呢？ 这篇文章聊聊最常用的数据结构-数组。">
 <meta name="keywords" content="编程 写作 iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="流式按钮布局">
-<meta property="og:url" content="http://yoursite.com/2016/11/24/2016-11-24-流式按钮布局/index.html">
+<meta property="og:title" content="数据结构&amp;算法之美2-数组">
+<meta property="og:url" content="http://yoursite.com/2018/11/25/数据结构-算法之美2-数组/index.html">
 <meta property="og:site_name" content="Rachal&#39;s blog">
-<meta property="og:description" content="App搜索页面经常用到关键词提示，例如手机淘宝的【历史搜索】，网易云音乐的【热门搜索】。为了方便使用，笔者写了一个可以流式布局按钮的view并封装。">
+<meta property="og:description" content="开篇思考题：为什么数组要从 0 开始编号，而不是从 1 开始呢？ 这篇文章聊聊最常用的数据结构-数组。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oumlnfj3g.bkt.clouddn.com/18-8-20/52192463.jpg">
-<meta property="og:updated_time" content="2018-09-11T03:08:21.000Z">
+<meta property="og:image" content="https://mdimages.oss-cn-shanghai.aliyuncs.com/blog/2018/learn_algorithm_cover03.jpg">
+<meta property="og:updated_time" content="2018-12-20T14:01:25.370Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="流式按钮布局">
-<meta name="twitter:description" content="App搜索页面经常用到关键词提示，例如手机淘宝的【历史搜索】，网易云音乐的【热门搜索】。为了方便使用，笔者写了一个可以流式布局按钮的view并封装。">
-<meta name="twitter:image" content="http://oumlnfj3g.bkt.clouddn.com/18-8-20/52192463.jpg">
+<meta name="twitter:title" content="数据结构&amp;算法之美2-数组">
+<meta name="twitter:description" content="开篇思考题：为什么数组要从 0 开始编号，而不是从 1 开始呢？ 这篇文章聊聊最常用的数据结构-数组。">
+<meta name="twitter:image" content="https://mdimages.oss-cn-shanghai.aliyuncs.com/blog/2018/learn_algorithm_cover03.jpg">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/24/2016-11-24-流式按钮布局/">
+  <link rel="canonical" href="http://yoursite.com/2018/11/25/数据结构-算法之美2-数组/">
 
 
 
 
 
-  <title>流式按钮布局 | Rachal's blog</title>
+  <title>数据结构&算法之美2-数组 | Rachal's blog</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/24/2016-11-24-流式按钮布局/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/25/数据结构-算法之美2-数组/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rachal Zhou">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">流式按钮布局</h1>
+          <h1 class="post-title" itemprop="name headline">数据结构&算法之美2-数组</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-24T19:34:15+08:00">
-                2016-11-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-25T10:00:00+08:00">
+                2018-11-25
               </time>
             
 
@@ -307,8 +307,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Dev/" itemprop="url" rel="index">
-                    <span itemprop="name">Dev</span>
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
                   </a>
                 </span>
 
@@ -344,50 +344,65 @@
       
 
       
-        <p>App搜索页面经常用到关键词提示，例如手机淘宝的【历史搜索】，网易云音乐的【热门搜索】。为了方便使用，笔者写了一个可以流式布局按钮的view并封装。</p>
+        <p><strong>开篇思考题</strong>：为什么数组要从 0 开始编号，而不是从 1 开始呢？</p>
+<p>这篇文章聊聊最常用的数据结构-数组。</p>
+<p><img src="https://mdimages.oss-cn-shanghai.aliyuncs.com/blog/2018/learn_algorithm_cover03.jpg" alt="数据结构&amp;算法之美2-数组"></p>
 <a id="more"></a>
-<p>【文末附运行效果及demo】</p>
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><h3 id="需要哪些样式？"><a href="#需要哪些样式？" class="headerlink" title="需要哪些样式？"></a>需要哪些样式？</h3><ul>
-<li>按钮带圆角，有边框；</li>
-<li>按钮宽度根据标题长度自适应；</li>
-<li>按钮之间可以调整间距。</li>
+<p>本章内容源于笔者对极客时间<a href="https://time.geekbang.org/column/intro/126" target="_blank" rel="noopener">《数据结构与算法之美》</a>以下章节的学习笔记：</p>
+<ul>
+<li><a href="https://time.geekbang.org/column/article/40961" target="_blank" rel="noopener">数组：为什么很多编程语言中数组都从0开始编号？</a></li>
 </ul>
-<h3 id="流式布局的核心是什么？"><a href="#流式布局的核心是什么？" class="headerlink" title="流式布局的核心是什么？"></a>流式布局的核心是什么？</h3><ul>
-<li>核心逻辑：当 当前按钮宽度在视图水平方向放得下时就把按钮添加在当前水平方向，当 当前按钮宽度在视图水平方向放不下时就换一行添加。</li>
+<h3 id="数组的定义"><a href="#数组的定义" class="headerlink" title="数组的定义"></a>数组的定义</h3><p>数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。</p>
+<p>关键词1：<strong>线性表</strong></p>
+<ul>
+<li>线性表：就是数据排成一条线一样的结构，每个线性表上的数据最多只有前和后两个方向。数组、链表、队列、栈都是线性表结构。</li>
+<li>非线性表：与线性表对立的概念，数据之间并不是简单的前后关系。二叉树、堆、图都是非线性表结构。</li>
 </ul>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ol>
-<li>自定义一个view，view上的按钮根据传进来的关键词数组循环创建。</li>
-<li>将上一个按钮做标记，创建当前按钮时根据上一个按钮的位置设置当前按钮位置。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">if (i == 0) &#123;</span><br><span class="line"></span><br><span class="line">    btn.frame = CGRectMake(self.padding, self.padding, rect.size.width + 15, rect.size.height + 15);</span><br><span class="line">&#125;else &#123;</span><br><span class="line"></span><br><span class="line">    CGFloat leftWidth = CGRectGetWidth(self.frame) - btnPrev.frame.origin.x - btnPrev.frame.size.width - self.padding * 2;</span><br><span class="line">    if (leftWidth &gt; rect.size.width) &#123;</span><br><span class="line"></span><br><span class="line">        btn.frame = CGRectMake(CGRectGetMaxX(btnPrev.frame) + self.padding, btnPrev.frame.origin.y, rect.size.width + 15, rect.size.height + 15);</span><br><span class="line">    &#125;else &#123;</span><br><span class="line"></span><br><span class="line">        btn.frame = CGRectMake(self.padding, CGRectGetMaxY(btnPrev.frame) + self.padding, rect.size.width + 15, rect.size.height + 15);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>利用layer设置按钮圆角、边框等样式。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">btn.layer.cornerRadius = 12;</span><br><span class="line">btn.layer.masksToBounds = YES;</span><br><span class="line">btn.layer.borderWidth = 1;</span><br><span class="line">btn.layer.borderColor = self.borderColor.CGColor;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>标记按钮，利用 <code>block</code>（也可以选择代理）将按钮作为参数传出，进行点击事件操作。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)onBtnClick:(UIButton *)btn &#123;</span><br><span class="line"></span><br><span class="line">    if (self.clickBlock) &#123;</span><br><span class="line"></span><br><span class="line">        self.clickBlock(btn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
-<li>view的高度在创建完最后一个按钮后才能确定，所以在for循环中别忘了最后设置一下view的高度。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//最后一个按钮时设置视图高度</span><br><span class="line">if (i == self.words.count - 1) &#123;</span><br><span class="line"></span><br><span class="line">    CGRect aRect = self.frame;</span><br><span class="line">    aRect.size.height = CGRectGetMaxY(btn.frame) + 10;</span><br><span class="line">    self.frame = aRect;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>为了更方面使用，封装view时可以留出属性接口方便对其设置。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/* 可单独设置样式,不设置则为默认样式</span><br><span class="line">* words 词汇数组</span><br><span class="line">* btnColor 按钮背景色</span><br><span class="line">* titleColor 文字颜色</span><br><span class="line">* borderColor 按钮边框颜色</span><br><span class="line">* padding 按钮间隔</span><br><span class="line">* wordHeight 词汇高度</span><br><span class="line">* fontSize 字体大小</span><br><span class="line">*/</span><br><span class="line">@property (nonatomic, strong) NSArray *words;</span><br><span class="line">@property (nonatomic, strong) UIColor *btnColor;</span><br><span class="line">@property (nonatomic, strong) UIColor *titleColor;</span><br><span class="line">@property (nonatomic, strong) UIColor *borderColor;</span><br><span class="line">@property (nonatomic, assign) CGFloat padding;</span><br><span class="line">@property (nonatomic, assign) CGFloat wordHeight;</span><br><span class="line">@property (nonatomic, assign) CGFloat fontSize;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>你也可以在自定义view时的初始化方法中添加好默认设置，如果使用时不想过多设置，可以使用默认效果。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//初始化:默认设置</span><br><span class="line">- (instancetype)init &#123;</span><br><span class="line">    if (self = [super init]) &#123;</span><br><span class="line"></span><br><span class="line">        self.btnColor = [UIColor whiteColor];</span><br><span class="line">        self.titleColor = [UIColor blackColor];</span><br><span class="line">        self.borderColor = [UIColor lightGrayColor];</span><br><span class="line">        self.padding = 10;</span><br><span class="line">        self.wordHeight = 25;</span><br><span class="line">        self.fontSize = 15;</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>在 <code>block</code> 中将 <code>button</code> 作为唯一参数即可，标题可以通过 <code>button.currentTitle</code> 获取，拿到 <code>button</code> 可以做的事情更多，例如改变选中按钮的颜色等等。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)onBtnClick:(UIButton *)btn &#123;</span><br><span class="line"></span><br><span class="line">    if (self.clickBlock) &#123;</span><br><span class="line"></span><br><span class="line">        self.clickBlock(btn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://oumlnfj3g.bkt.clouddn.com/18-8-20/52192463.jpg" alt="效果"></p>
-<p><a href="https://github.com/RachalZhou/RZFlowButtonView" target="_blank" rel="noopener">完整demo</a></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个效果只要理解了<strong>流式布局</strong>的核心逻辑，处理起来就很简单了。最后为了方便使用，封装时注意一些细节即可。</p>
-
+<p>关键词2：<strong>连续的内存空间和相同类型的数据</strong></p>
+<ul>
+<li>利：支持随机访问。</li>
+<li>弊：为了保证连续性，删除、插入操作非常低效，因为需要做大量的数据搬移工作。</li>
+</ul>
+<h3 id="随机访问"><a href="#随机访问" class="headerlink" title="随机访问"></a>随机访问</h3><p>数组的随机访问要用到元素在数组中的下标，那么这是怎么实现的？我们知道计算机会给每个内存单元分配一个地址，通过地址来访问内存中的数据，寻址公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// base_address为内存块首地址</span><br><span class="line">// data_type_size为数组中每个元素的大小</span><br><span class="line">a[i]_address = base_address + i * data_type_size</span><br></pre></td></tr></table></figure></p>
+<p>补充：很多人在回答数组和链表的区别时认为数组适合查找，查找的时间复杂度为 <em>O(1)</em>。这种表述不准确，数组是适合查找操作，但是查找的时间复杂度并不是 <em>O(1)</em>，即便是排好序的数组，利用二分查找，时间复杂度也是 <em>O(logn)</em>。准确的说法是，数组支持随访问，根据下标随机访问的时间复杂度是 <em>O(1)</em>。</p>
+<h3 id="低效的插入和删除"><a href="#低效的插入和删除" class="headerlink" title="低效的插入和删除"></a>低效的插入和删除</h3><h4 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h4><p>由于数组要保证内存连续性，当要在第k个位置插入一个数据，那么k~n这部分数据都要按顺序往后挪一位。假如插入的位置是数组的末尾，那么数组中原来的元素无需搬移，只需要进行1次操作；假如插入的位置是数组的的首位，那么数组中原来的元素都要往后挪一位，需要操作n次。所以数组中插入元素的时间复杂：</p>
+<ul>
+<li>最好情况时间复杂度：<em>O(1)</em></li>
+<li>最坏情况时间复杂度：<em>O(n)</em></li>
+<li>平均情况时间复杂度：(1/n)<em>1 + (1/n)</em>2 + … + (1/n)<em>n = </em>O(n)*</li>
+</ul>
+<p><strong>特定情况</strong>：当数组只是被当做一个存储集合，插入第k个位置时，可以先将原本第k个位置的数据搬移到数组元素的最后，再把新的元素直接放入第k个位置。这样时间复杂度就会降为 <em>O(1)</em>。</p>
+<h4 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h4><p>同样为了保证内存的连续性，数组中的删除操作也需要数据搬移，时间复杂度同插入操作。</p>
+<p><strong>特定情况</strong>：实际操作并不一定非要追求数组的连续性，要删除数组中元素时，可以先将该元素标记为已删除，当数组没有更多空间存储数据时，再触发一次真正的删除操作，这样就能大大减少删除操作导致的数据搬移。</p>
+<p>这恰恰就是JVM标记清除垃圾回收算法的核心思想。不管是软件开发还是架构设计，总能找到算法与数据结构的影子。</p>
+<h3 id="数组越界"><a href="#数组越界" class="headerlink" title="数组越界"></a>数组越界</h3><p>分析以下C语言代码的运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char* argv[])&#123;</span><br><span class="line">    int i = 0;</span><br><span class="line">    int arr[3] = &#123;0&#125;;</span><br><span class="line">    for(; i&lt;=3; i++)&#123;</span><br><span class="line">        arr[i] = 0;</span><br><span class="line">        printf(&quot;hello world\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果是出现无限循环，一直打印“hello world”。</p>
+<p><strong>解析</strong>：由于for循环的边界条件是i&lt;=3，而不是i&lt;3，当i增长至3时数组arr[3]访问越界。申明变量时i和arr并列且i在前，arr长度为3，64位操作系统下默认会进行8字节对其，4个整数刚好满足，arr[3]越界后访问到i。arr[3]=0，也就是i=0，于是进入无限循环。</p>
+<ul>
+<li>很多计算机病毒正是利用到了代码中的数组越界访问非法地址的漏洞，来攻击系统，编写代码时应当警惕数组越界。</li>
+<li>很多语言会做越界检查，抛出异常。</li>
+</ul>
+<h3 id="数组与容器"><a href="#数组与容器" class="headerlink" title="数组与容器"></a>数组与容器</h3><p>很多语言针对数组类型提供了容器类，这些容器类不仅<strong>封装了很多数组操作的细节</strong>，还<strong>支持动态扩容</strong>。例如Java中的ArrayList，每次存储空间不够时，会自动扩容为原来的1.5倍大小。</p>
+<p>相对容器，何时使用数组更合适？</p>
+<ul>
+<li>例如Java ArrayList无法存储int、long等基本类型，需要封装为Integer、Long类，希望使用基本类型时就可以用数组。</li>
+<li>数据大小事先已知且操作简单可以直接用数组。</li>
+<li>表示多维数组时，用数组更直观。如Object[][] array。</li>
+</ul>
+<p><strong>总结</strong>：对于业务开发，直接使用容器就足够了，省时省力。毕竟损耗一丢丢性能，完全不会影响到系统整体的性能。但如果是做一些非常底层的开发，比如开发网络框架，性能的优化需要做到极致，这个时候数组就会优于容器，成为首选。</p>
+<p><strong>解答开篇</strong>：</p>
+<p>为什么大多数编程语言中，数组要从0开始编号，而不是从1开始呢？</p>
+<p>答：下标其实就是元素相对数组首地址的偏移量。数组从0开始编号，a[k]表示元素的内存地址就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[k]_address = base_address + k * type_size</span><br></pre></td></tr></table></figure>
+<p>如果数组从1开始编号，a[k]表示元素的内存地址就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[k]_address = base_address + (k-1)*type_size</span><br></pre></td></tr></table></figure>
+<p>对比发现，如果数组编号从1开始，每次随机访问元素就多了一次减法运算，CPU就多了一次减法指令。另外就是历史原因了。</p>
+<p><strong>思考题二</strong>：前面提到JVM，说说你所理解的标记清除垃圾回收算法。</p>
+<p><strong>参考回答</strong>：大多数主流虚拟机采用<strong>可达性分析算法</strong>来判断对象是否存活，在标记阶段，会遍历所有GC ROOTS，将所有GC ROOTS可达的对象标记为存活。只有当标记工作完成后，清理工作才会开始。不足：1.效率问题。标记和清理效率都不高，但是当知道只有少量垃圾产生时会很高效。2.空间问题。会产生不连续的内存空间碎片。</p>
+<p><strong>思考题二</strong>：思考一下二维数组的内存寻址公式。</p>
+<p><strong>参考回答</strong>：对于m*n的二位数组，a[i]<a href="i&lt;m,j&lt;n">j</a>的内存地址为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">address = base_address + ( i * n + j) * type_size</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -440,8 +455,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/01/简易的iOS导航栏颜色渐变方案/" rel="next" title="简易的iOS导航栏颜色渐变方案">
-                <i class="fa fa-chevron-left"></i> 简易的iOS导航栏颜色渐变方案
+              <a href="/2018/11/24/数据结构-算法之美1-复杂度分析/" rel="next" title="数据结构&算法之美1-复杂度分析">
+                <i class="fa fa-chevron-left"></i> 数据结构&算法之美1-复杂度分析
               </a>
             
           </div>
@@ -449,10 +464,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/08/2017-03-08-给生活添点艺术气息/" rel="prev" title="给生活添点艺术气息">
-                给生活添点艺术气息 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -531,7 +542,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -542,7 +553,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -605,7 +616,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">1.</span> <span class="nav-text">思考</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要哪些样式？"><span class="nav-number">1.1.</span> <span class="nav-text">需要哪些样式？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流式布局的核心是什么？"><span class="nav-number">1.2.</span> <span class="nav-text">流式布局的核心是什么？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">3.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的定义"><span class="nav-number">1.</span> <span class="nav-text">数组的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机访问"><span class="nav-number">2.</span> <span class="nav-text">随机访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#低效的插入和删除"><span class="nav-number">3.</span> <span class="nav-text">低效的插入和删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入操作"><span class="nav-number">3.1.</span> <span class="nav-text">插入操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除操作"><span class="nav-number">3.2.</span> <span class="nav-text">删除操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组越界"><span class="nav-number">4.</span> <span class="nav-text">数组越界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组与容器"><span class="nav-number">5.</span> <span class="nav-text">数组与容器</span></a></li></ol></div>
             
 
           </div>
