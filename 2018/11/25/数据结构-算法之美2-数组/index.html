@@ -88,7 +88,7 @@
 <meta property="og:description" content="开篇思考题：为什么数组要从 0 开始编号，而不是从 1 开始呢？ 这篇文章聊聊最常用的数据结构-数组。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://mdimages.oss-cn-shanghai.aliyuncs.com/blog/2018/learn_algorithm_cover03.jpg">
-<meta property="og:updated_time" content="2018-12-20T14:01:25.370Z">
+<meta property="og:updated_time" content="2018-12-25T09:19:35.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构&amp;算法之美2-数组">
 <meta name="twitter:description" content="开篇思考题：为什么数组要从 0 开始编号，而不是从 1 开始呢？ 这篇文章聊聊最常用的数据结构-数组。">
@@ -401,7 +401,7 @@
 <p><strong>思考题二</strong>：前面提到JVM，说说你所理解的标记清除垃圾回收算法。</p>
 <p><strong>参考回答</strong>：大多数主流虚拟机采用<strong>可达性分析算法</strong>来判断对象是否存活，在标记阶段，会遍历所有GC ROOTS，将所有GC ROOTS可达的对象标记为存活。只有当标记工作完成后，清理工作才会开始。不足：1.效率问题。标记和清理效率都不高，但是当知道只有少量垃圾产生时会很高效。2.空间问题。会产生不连续的内存空间碎片。</p>
 <p><strong>思考题二</strong>：思考一下二维数组的内存寻址公式。</p>
-<p><strong>参考回答</strong>：对于m*n的二位数组，a[i]<a href="i&lt;m,j&lt;n">j</a>的内存地址为：</p>
+<p><strong>参考回答</strong>：对于m*n的二位数组，a[i][j] (i&lt;m,j&lt;n) 的内存地址为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">address = base_address + ( i * n + j) * type_size</span><br></pre></td></tr></table></figure>
       
     </div>
